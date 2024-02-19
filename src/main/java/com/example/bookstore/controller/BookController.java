@@ -1,6 +1,7 @@
 package com.example.bookstore.controller;
 
 import com.example.bookstore.dto.BookDto;
+import com.example.bookstore.dto.BookSearchParametersDto;
 import com.example.bookstore.dto.CreateBookRequestDto;
 import com.example.bookstore.service.BookService;
 import java.util.List;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,9 +28,15 @@ public class BookController {
         return bookService.findAll();
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @GetMapping("/{id}")
-    public BookDto getBookById(Long id) {
+    public BookDto getBookById(@PathVariable Long id) {
         return bookService.findById(id);
+    }
+
+    @GetMapping("/search")
+    public List<BookDto> searchBooks(BookSearchParametersDto searchParameters) {
+        return bookService.searchBooks(searchParameters);
     }
 
     @PostMapping
