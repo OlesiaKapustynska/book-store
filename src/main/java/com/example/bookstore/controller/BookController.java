@@ -38,12 +38,12 @@ public class BookController {
     }
 
     @Operation(summary = "Get a book by its ID")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     @GetMapping("/{id}")
     public BookDto getBookById(@PathVariable Long id) {
         return bookService.findById(id);
     }
 
+    @Operation(summary = "Search books by titles and authors")
     @GetMapping("/search")
     public List<BookDto> searchBooks(BookSearchParametersDto searchParameters) {
         return bookService.searchBooks(searchParameters);
