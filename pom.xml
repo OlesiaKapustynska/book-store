@@ -64,9 +64,14 @@
 			<artifactId>spring-orm</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-dbcp2</artifactId>
-			<version>2.11.0</version>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>${liquibase.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-maven-plugin</artifactId>
+			<version>${liquibase.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mapstruct</groupId>
@@ -106,7 +111,6 @@
 					<consoleOutput>true</consoleOutput>
 					<failsOnError>true</failsOnError>
 					<linkXRef>false</linkXRef>
-					<sourceDirectories>src</sourceDirectories>
 					<sourceDirectories>src</sourceDirectories>
 				</configuration>
 			</plugin>
