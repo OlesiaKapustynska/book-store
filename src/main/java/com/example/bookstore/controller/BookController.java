@@ -28,7 +28,6 @@ public class BookController {
         return bookService.findAll();
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     @GetMapping("/{id}")
     public BookDto getBookById(@PathVariable Long id) {
         return bookService.findById(id);
