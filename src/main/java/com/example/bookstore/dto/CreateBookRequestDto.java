@@ -13,7 +13,7 @@ public class CreateBookRequestDto {
     private String author;
     @NotBlank
     private String isbn;
-    @Min(5)
+    @Min(0)
     private BigDecimal price;
     private String description;
     private String coverImage;
