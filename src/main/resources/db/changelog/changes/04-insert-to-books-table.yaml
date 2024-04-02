@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-to-books-table
+      author: okapustynska
+      changes:
+        - insert:
+            tableName: books
+            columns:
+              - column: { name: title, value: "The Lord of the Rings: The Fellowship of the Ring" }
+              - column: { name: author, value: "J. R. R. Tolkien" }
+              - column: { name: isbn, value: "978-0547928225" }
+              - column: { name: price, value: "19.99" }
+              - column: { name: description, value: "An epic high fantasy tale following a hobbit named Frodo on a quest to destroy the One Ring." }
+              - column: { name: cover_image, value: "https://example.com/tolkien-fellowship.jpg" }
+        - insert:
+            tableName: books
+            columns:
+              - column: { name: title, value: "Pride and Prejudice" }
+              - column: { name: author, value: "Jane Austen" }
+              - column: { name: isbn, value: "978-0140435225" }
+              - column: { name: price, value: "12.50" }
+              - column: { name: description, value: "A witty social commentary following the lives of the Bennet sisters in search of love and marriage." }
+              - column: { name: cover_image, value: "https://example.com/austen-pride.jpg" }
+        - insert:
+            tableName: books
+            columns:
+              - column: { name: title, value: "A Brief History of Time" }
+              - column: { name: author, value: "Stephen Hawking" }
+              - column: { name: isbn, value: "978-0553380168" }
+              - column: { name: price, value: "17.95" }
+              - column: { name: description, value: "A fascinating exploration of the universe, time, and the origins of everything." }
+              - column: { name: cover_image, value: "https://example.com/hawking-brief.jpg" }
