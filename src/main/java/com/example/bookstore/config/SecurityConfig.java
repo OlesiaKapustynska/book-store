@@ -2,6 +2,7 @@ package com.example.bookstore.config;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,13 +12,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+@RequiredArgsConstructor
 @Configuration
 public class SecurityConfig {
     private final UserDetailsService userDetailsService;
-
-    public SecurityConfig(UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
 
     @Bean
     public PasswordEncoder getPasswordEncoder() {
@@ -31,12 +29,11 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
                         auth -> auth
-                                .requestMatchers("/auth/**", "/error")
+                                .requestMatchers("/auth/**", "/error", "/swagger-ui/**")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated()
                 )
-                .securityMatcher("/swagger-ui/**")
                 .httpBasic(withDefaults())
                 .userDetailsService(userDetailsService)
                 .build();

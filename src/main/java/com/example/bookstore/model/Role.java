@@ -30,7 +30,7 @@ public class Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return RoleName.USER.name();
+        return "ROLE_" + name.name();
     }
 
     public enum RoleName {
