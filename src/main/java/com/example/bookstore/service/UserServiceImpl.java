@@ -1,11 +1,12 @@
 package com.example.bookstore.service;
 
-import com.example.bookstore.dto.UserRegistrationRequestDto;
-import com.example.bookstore.dto.UserResponseDto;
+import com.example.bookstore.dto.user.UserRegistrationRequestDto;
+import com.example.bookstore.dto.user.UserResponseDto;
 import com.example.bookstore.exception.RegistrationException;
 import com.example.bookstore.mapper.UserMapper;
 import com.example.bookstore.model.Role;
 import com.example.bookstore.model.User;
+import com.example.bookstore.repository.RoleRepository;
 import com.example.bookstore.repository.UserRepository;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
 
