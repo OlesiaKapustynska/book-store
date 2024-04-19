@@ -1,6 +1,6 @@
 package com.example.bookstore.repository;
 
-import com.example.bookstore.dto.BookSearchParametersDto;
+import com.example.bookstore.dto.book.BookSearchParametersDto;
 import com.example.bookstore.model.Book;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
